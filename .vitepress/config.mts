@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import { set_sidebar } from "./utils/route.mjs";	// 改成自己的路径
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,31 +12,9 @@ export default defineConfig({
       { text: '首页', link: '/' },
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        collapsed: false,    // 默认展开
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      },
-      {
-        text: '前端小记',
-        collapsed: false,    // 默认展开
-        items: [
-          // { text: '前端小记', 
-            // link: '/doc-code/front/index',
-          {
-            text: 'css小记',
-            collapsed: false,    // 默认展开
-            items: [
-              { text: 'display的用法', link: '/doc-code/front/css/display的用法' },
-            ]
-        },
-        ]
-      },
-    ],
+    sidebar: {
+      '/doc-code/front/': set_sidebar('/doc-code/front/'),
+    },
     search: {
       provider: 'local'
     },
