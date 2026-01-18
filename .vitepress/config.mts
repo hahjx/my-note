@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
-import { set_sidebar } from "./utils/route.mjs";	// 改成自己的路径
+// import { set_sidebar } from "./utils/route.mjs";	// 改成自己的路径
+import { setSideBar } from "./utils/genRoute.mts";	// 改成自己的路径
 
 
 // https://vitepress.dev/reference/site-config
@@ -12,9 +13,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
     ],
 
-    sidebar: {
-      '/doc-code/front/': set_sidebar('/doc-code/front/'),
-    },
+    sidebar: setSideBar(),
     search: {
       provider: 'local'
     },
