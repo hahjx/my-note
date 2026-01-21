@@ -95,34 +95,19 @@ const getList = (pathStr:string) =>{
         // 读取每个文件夹里面的内容(包括子文件夹和文件)
         for(let i= 0;i<filesList.length;i++){
             if(isDir(path.resolve(fullPathStr , filesList[i]))){
-                // 如果下一级文件夹里面只有一个.md,就直接以当前文件夹名称作为link
-                console.log('fullPathStr',fullPathStr,filesList[i])
-                if(fs.readdirSync(path.resolve(fullPathStr , filesList[i])).length === 1 && filesList[i].endsWith('.md')){
-                    const singleFileName = fs.readdirSync(path.resolve(fullPathStr , filesList[i]))[0]
-                    console.log('singleFileName',singleFileName)
-                    if(singleFileName === 'index.md'){
-                        if(singleFileName.replace('.md', '') === 'java'){
-                            console.log('找到了',res.push({
-                                text:filesList[i] ,
-                                link: `/${pathStr + '/' + filesList[i] +'/' + filesList[i]}`,
-                            }))
-                        }
+                // 如果下一级文件夹里面只有一个.md,且这个.md文件的文件名和文件夹名称相同或者为index,就直接以当前文件夹名称作为link
+                const children = fs.readdirSync(path.resolve(fullPathStr , filesList[i]))
+                if(children?.length === 1){
+                    // 对于非index.md文件,直接以文件名作为路由名称,link也直接以文件名作为路由名称,不需要多加一层文件夹
+                    if(children[0] === 'index.md'){
                         res.push({
                             text: filesList[i],
-                            // 对于index.md,vitepress会默认解析
                             link: `/${pathStr + '/' + filesList[i]}`,
                         })
-                    }else if(singleFileName.replace('.md', '') === filesList[i]){
-                        if(singleFileName.replace('.md', '') === 'java'){
-                            console.log('找到了',res.push({
-                                text:filesList[i] ,
-                                link: `/${pathStr + '/' + filesList[i] +'/' + filesList[i]}`,
-                            }))
-                        }
-                        // 对于非index.md文件,直接以文件名作为路由名称,link也直接以文件名作为路由名称,不需要多加一层文件夹
+                    }else if(children[0].replace('.md', '') === filesList[i] ){
                         res.push({
-                            text:filesList[i] ,
-                            link: `/${pathStr + '/' + filesList[i] +'/' + filesList[i]}`,
+                            text: filesList[i],
+                            link: `/${pathStr + '/' + filesList[i]} + '/' + ${filesList[i]}`,
                         })
                     }
                 }
@@ -130,11 +115,19 @@ const getList = (pathStr:string) =>{
                 else{
                     // 过滤掉白名单里面的例如asset文件夹
                     if(isWhiteList(filesList[i])) continue;
-                    res.push({
-                        text: filesList[i],
-                        collapsed: false,    // 默认展开
-                        items: getList(pathStr + '/' + filesList[i]),
-                    })
+                    if(fs.readdirSync(path.resolve(fullPathStr , filesList[i])).length === 1 ){
+                        res.push({
+                            text: filesList[i],
+                            // 对于index.md,vitepress会默认解析
+                            link: `/${pathStr + '/' + filesList[i]}`,
+                        })
+                    }else{
+                        res.push({
+                            text: filesList[i],
+                            collapsed: false,    // 默认展开
+                            items: getList(pathStr + '/' + filesList[i]),
+                        })
+                    }
                 }
             }else if(filesList[i].endsWith('.md')){
                 if(filesList[i] === 'index.md'){
