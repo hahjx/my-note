@@ -15,6 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 构建任务
   build:
     runs-on: ubuntu-latest
     steps:
@@ -23,13 +24,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 第一步：必须要安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      # 第二步：设置 Node，并将缓存指向 pnpm
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -39,15 +38,27 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      # 第三步：使用 pnpm 安装依赖
       - name: Install dependencies
         run: pnpm install
 
-      # 第四步：使用 pnpm 构建
       - name: Build with VitePress
         run: pnpm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist # 注意：看你截图，.vitepress 似乎在根目录而非 docs 下，请根据实际微调
+          # 根据你之前的反馈，这里假设 .vitepress 在根目录
+          path: .vitepress/dist
+
+  # 部署任务（你之前漏掉的部分）
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
