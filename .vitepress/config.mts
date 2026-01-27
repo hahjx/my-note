@@ -14,7 +14,15 @@ export default defineConfig({
       { text: '首页', link: '/' },
     ],
 
-    sidebar: setSideBar(),
+    // sidebar: setSideBar(),
+    sidebar: [
+      {
+        text: '示例',
+        items: [
+          { text: '示例111', link: '/example111' },
+        ]
+      }
+    ],
     search: {
       provider: 'local'
     },
