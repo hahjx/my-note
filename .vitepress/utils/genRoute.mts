@@ -127,7 +127,7 @@ const getList = (pathStr:string) =>{
                     }else{
                         res.push({
                             text: filesList[i],
-                            collapsed: false,    // 默认展开
+                            collapsed: true,    // 默认展开
                             items: getList(pathStr + '/' + filesList[i]),
                         })
                     }
@@ -163,7 +163,7 @@ export const setSideBar = (preFix:string = 'doc-')=>{
     const routeList =  filterList.map((item)=>{
         return {
             text: item,
-            collapsed: false,    // 默认展开
+            collapsed: true,    // 默认展开
             items: getList(item),
         }
     })
