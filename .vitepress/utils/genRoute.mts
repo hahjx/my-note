@@ -98,16 +98,19 @@ const getList = (pathStr:string) =>{
                 // 如果下一级文件夹里面只有一个.md,且这个.md文件的文件名和文件夹名称相同或者为index,就直接以当前文件夹名称作为link
                 const children = fs.readdirSync(path.resolve(fullPathStr , filesList[i]))
                 if(children?.length === 1){
+                    // console.log('看是否相同',children[0].replace('.md', ''),filesList[i])
                     // 对于非index.md文件,直接以文件名作为路由名称,link也直接以文件名作为路由名称,不需要多加一层文件夹
-                    if(children[0] === 'index.md'){
+                    if(children[0] === 'index.md' ){
+                        // console.log('index.md文件',filesList[i])
                         res.push({
                             text: filesList[i],
-                            link: `/${pathStr + '/' + filesList[i]}`,
+                            link: `/${pathStr + '/' + filesList[i] + '/index'}`,
                         })
                     }else if(children[0].replace('.md', '') === filesList[i] ){
                         res.push({
                             text: filesList[i],
-                            link: `/${pathStr + '/' + filesList[i]} + '/' + ${filesList[i]}`,
+                            // link: `/${pathStr + '/' + filesList[i]} + '/' + ${filesList[i].replace('.md', '')}`,
+                            link:`/${pathStr + '/' + filesList[i] + '/' + filesList[i]}`
                         })
                     }
                 }
@@ -131,16 +134,17 @@ const getList = (pathStr:string) =>{
                 }
             }else if(filesList[i].endsWith('.md')){
                 if(filesList[i] === 'index.md'){
+                    // continue;
                     res.push({
                         text: pathStr.split('/').pop() || '',
                         link: `/${pathStr.replace('.md', '')}`,
                     })
                 }else{
-                    console.log('找到非index的md了',filesList[i])
-                    console.log('push的内容',{
-                        text: filesList[i].replace('.md', ''),
-                        link: `/${(pathStr + '/' + filesList[i]).replace('.md', '')}`,
-                    })
+                    // console.log('找到非index的md了',filesList[i])
+                    // console.log('push的内容',{
+                    //     text: filesList[i].replace('.md', ''),
+                    //     link: `/${(pathStr + '/' + filesList[i]).replace('.md', '')}`,
+                    // })
                     res.push({
                         text: filesList[i].replace('.md', ''),
                         link: `/${(pathStr + '/' + filesList[i]).replace('.md', '')}`,
