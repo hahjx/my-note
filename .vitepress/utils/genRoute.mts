@@ -136,7 +136,7 @@ const getList = (pathStr:string) =>{
                 if(filesList[i] === 'index.md'){
                     // continue;
                     res.push({
-                        text: pathStr.split('/').pop() || '',
+                        text: '*' + pathStr.split('/').pop() || '',
                         link: `/${pathStr.replace('.md', '')}`,
                     })
                 }else{
