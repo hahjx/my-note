@@ -1,2 +1,12 @@
 node_modules
 dist
+
+# VitePress 缓存目录 (你截图里显示的那一堆)
+.vitepress/cache/
+
+# VitePress 编译输出目录
+.vitepress/dist/
+
+# 系统文件
+.DS_Store
+thumbs.db
