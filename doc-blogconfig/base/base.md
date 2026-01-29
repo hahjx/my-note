@@ -1,3 +1,6 @@
+## 网站地址
+- https://hahjx.github.io/my-note/
+
 ## 仓库地址
 - origin  https://github.com/hahjx/my-note.git (fetch)
 - origin  https://github.com/hahjx/my-note.git (push)
