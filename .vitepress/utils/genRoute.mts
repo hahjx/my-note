@@ -137,7 +137,7 @@ const getList = (pathStr:string) =>{
                     // continue;
                     res.push({
                         text: '*' + pathStr.split('/').pop() || '',
-                        link: `/${pathStr.replace('.md', '')}`,
+                        link: `/${pathStr.replace('.md', '')}/`,
                     })
                 }else{
                     // console.log('找到非index的md了',filesList[i])

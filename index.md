@@ -11,14 +11,8 @@ hero:
   tagline: My great project tagline,
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 建站缘由
+      link: /doc-introduce/why
     - theme: alt
       text: API Examples
       link: /api-examples
@@ -26,6 +20,7 @@ hero:
 features:
   - title: 代码小记
     details: 记录一下自己写代码的过程,以及一些遇到的问题
+    link: /doc-code
   - title: 语言小记
     details: 记录一下自己学习语言的过程,以及一些遇到的问题
   - title: 阅读小记
