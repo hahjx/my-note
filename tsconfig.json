@@ -12,11 +12,6 @@
     "allowSyntheticDefaultImports": true,
     "types": ["node"]
   },
-  "include": [
-    ".vitepress/**/*.ts",
-    ".vitepress/**/*.mts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": [".vitepress/**/*.ts", ".vitepress/**/*.mts"],
+  "exclude": ["node_modules"]
 }

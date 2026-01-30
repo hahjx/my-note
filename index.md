@@ -3,11 +3,11 @@
 layout: home
 
 hero:
-  name: "寒江雪的小站"
-  text: "孤舟蓑立翁,独钓寒江雪"
+  name: '寒江雪的小站'
+  text: '孤舟蓑立翁,独钓寒江雪'
   image:
-    src: "./.vitepress/assets/images/background.svg"
-    alt: "寒江雪的小站"
+    src: './.vitepress/assets/images/background.svg'
+    alt: '寒江雪的小站'
   tagline: My great project tagline,
   actions:
     - theme: brand
@@ -32,4 +32,3 @@ features:
   - title: 其他
     details: 记点东西,每天进步一点点,念头通达
 ---
-
