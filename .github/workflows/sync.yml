@@ -1,0 +1,23 @@
+name: Sync to Gitee
+
+on:
+  push:
+    branches: -'**'
+     # 当推送到这两个分支时触发
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror the GitHub repo to Gitee
+        uses: Yikun/hub-mirror-action@master
+        with:
+          # 源端（GitHub）信息
+          src: github/hahjx
+          # 目的端（Gitee）信息
+          dst: gitee/hahjx
+          # 引用刚才设置的 Secret，非常安全
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: "my-note"
+          force_update: true
+          debug: true
