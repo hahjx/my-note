@@ -22,3 +22,5 @@ jobs:
           static_list: "my-note"
           force_update: true
           debug: true
+          # 加上下面这一行，强制使用 HTTPS 协议同步
+          clone_style: "https"
