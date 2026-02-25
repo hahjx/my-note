@@ -2,8 +2,9 @@ name: Sync to Gitee
 
 on:
   push:
-    branches: -'**'
-     # 当推送到这两个分支时触发
+    branches:
+         - '**'
+    # 当推送到这两个分支时触发
 
 jobs:
   repo-sync:
