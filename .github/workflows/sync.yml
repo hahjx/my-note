@@ -18,9 +18,11 @@ jobs:
           # 目的端（Gitee）信息
           dst: gitee/hahjx
           # 引用刚才设置的 Secret，非常安全
+          dst_key: "" # 显式声明不使用密钥
           dst_token: ${{ secrets.GITEE_TOKEN }}
           static_list: "my-note"
           force_update: true
           debug: true
           # 加上下面这一行，强制使用 HTTPS 协议同步
           clone_style: "https"
+          account_type: "user"
