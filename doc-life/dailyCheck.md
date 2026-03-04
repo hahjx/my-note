@@ -1,0 +1,9 @@
+- Mustache
+- Fingernail
+- Tidy up the room
+- Take medicine
+- wash hair
+- brush teeth
+- drink water
+- Mood(goingout)
+- 
