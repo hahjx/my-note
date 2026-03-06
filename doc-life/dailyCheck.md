@@ -1,4 +1,5 @@
 - Mustache
+- lipsCare
 - Fingernail
 - Tidy up the room
 - Take medicine
@@ -6,4 +7,4 @@
 - brush teeth
 - drink water
 - Mood(goingout)
-- 
+- air of the room
