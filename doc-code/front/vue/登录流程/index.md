@@ -117,3 +117,15 @@
 ## 雷点
 
 页面刷新 404 动态路由是在运行时添加的，刷新后路由表会重置。必须在 router.beforeEach 中判断如果没有角色信息，重新执行一次动态加载逻辑。
+
+## 登录接口清单
+
+1. 验证码接口（可选）
+2. 登录验证接口（login）
+   - 返回tokenA
+3. 获取用户信息接口（getUserInfo）
+   - 这个接口健全用tokenA获取用户信息和角色
+4. 获取权限与角色接口（GetPermissions/GetRoles）
+   - 返回 role 角色列表（如 ['admin', 'editor']）。
+   - 返回 button 权限列表（如 ['sys:user:add', 'sys:user:delete']）。
+5. 获取动态路由/菜单接口
