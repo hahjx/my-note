@@ -7,4 +7,6 @@
 - phone
   - count:1
   - need:0
--
+- light
+  - count:3
+  - need:true
