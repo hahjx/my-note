@@ -1,0 +1,6 @@
+www.baidu.com##DIV[class="FYB_RD"]
+www.zhihu.com##DIV[class="Topstory"]
+www.zhihu.com##DIV[class="AutoComplete-group"]
+www.bilibili.com##MAIN[class="bili-feed4-layout"]
+www.bilibili.com##DIV[class="bili-header__channel"]
+www.baidu.com##DIV[id="s_mancard_main"][class="s-mancacrd-main"]
