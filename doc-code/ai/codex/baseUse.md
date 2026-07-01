@@ -162,12 +162,13 @@
 
 ## 长久记忆
 
-类似Claude使用claude.md,Codex 使用agent.md
+类似Claude使用claude.md,Codex 使用AGENTS.md
 
 - 功能：作为项目的说明书
 - 位置：
   - 全局层面:个人偏好。
     ```
+    路径：H:\Users\林老北\.codex\AGENTS.md
     比如你希望它回答中文，改代码前先给计划，测试失败要说明原因
     ```
   - 根目录:项目规范
